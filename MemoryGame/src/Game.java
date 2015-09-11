@@ -28,8 +28,9 @@ public static void main(String [] args){
 	for(;matches<=9;matches++){
 	if(matches!=9){
 
-	//	board.blankBoard();
-	board.Print();
+	board.blankBoard();
+	//board.Print();
+	
 	System.out.println("Enter the position of the card you're selecting(row, column): ");
 	r = scan.nextInt();
 	c= scan.nextInt();
@@ -44,12 +45,20 @@ public static void main(String [] args){
 		System.out.println();
 		matches+=1;
 		System.out.println(matches);
+		System.out.println();
 	}else{
 		System.out.println("You're bad.");
+		System.out.println("Player " + Turn(2) + "'s turn.");
 	}
 	}else{
 		System.out.println("Game Over.");
 	}
 	}
 	}
+	public static int Turn(int turn){
+		return turn;
+	}
+
+
+
 }	

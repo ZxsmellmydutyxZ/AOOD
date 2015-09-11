@@ -40,10 +40,10 @@ public class Board {
 		System.out.println();
 
 	}
-	public void reveal(int x, int y, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+	public void reveal(int x, int y, int x1, int y1) {
 		for(int i=0;i<board.length;i++){
 			for(int j=0;j<board[0].length;j++){
-				if((x==i && y==j) || (x1==i &&y1==j) || (x2==i && y2==j) || (x3==i &&y3==j) || (x4==i && y4==j)){
+				if((x==i && y==j) || (x1==i &&y1==j)){
 					System.out.print(" "+ board[i][j].getType() + " ");
 				}else{
 					System.out.print(" X ");
