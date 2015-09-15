@@ -13,15 +13,19 @@ public class Player {
 		return person;
 		
 	}
+	
 	public void addMatch(){
 		matches+=1;
 	}
+	
 	public void stats(){
 		System.out.println(name + " has " + matches + " points");
 	}
+	
 	public String getName(){
 		return name;
 	}
+	
 	public int getMatches(){
 		return matches;
 	}
