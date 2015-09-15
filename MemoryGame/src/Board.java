@@ -46,7 +46,11 @@ public class Board {
 				if((x==i && y==j) || (x1==i &&y1==j)){
 					System.out.print(" "+ board[i][j].getType() + " ");
 				}else{
+					if(board[i][j].isFound()){
+						System.out.print(" O ");
+					}else{
 					System.out.print(" X ");
+					}
 				}
 			}
 			System.out.println();
