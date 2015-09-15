@@ -1,16 +1,22 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Scanner;
 
 
 public class Board {
-	String [] animals = {"Cow", "Pig", "Horse", "Chicken", "Sheep", "Cow", "Pig", "Horse", "Chicken", "Sheep", "Cat", "Dog", "Snake", "Duck", "Cat", "Dog", "Snake", "Duck"};
-	ArrayList<String> ani = new ArrayList<String>(Arrays.asList(animals));
+	
+	//String [] animals = {"Cow", "Pig", "Horse", "Chicken", "Sheep", "Cow", "Pig", "Horse", "Chicken", "Sheep", "Cat", "Dog", "Snake", "Duck", "Cat", "Dog", "Snake", "Duck"};
+	
+	
+	ArrayList<String> ani = new ArrayList<String>();
 	final int row = 3;
 	final int col = 6;
 	private Card[][] board;
 
 	public Board(){
+	
 		for(int i = 0; i<ani.size();i++){
 			Collections.shuffle(ani);
 		}
@@ -76,6 +82,7 @@ public class Board {
 			System.out.println();
 		}	
 	}
+	
 	
 	
 

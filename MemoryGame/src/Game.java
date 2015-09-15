@@ -26,9 +26,6 @@ public static void main(String [] args){
 	
 	ArrayList<Player> players= new ArrayList<Player>();
 	
-	
-	
-	
 	System.out.println("How many players are playing? ");
 	playercount = scan.nextInt();
 	System.out.println();
