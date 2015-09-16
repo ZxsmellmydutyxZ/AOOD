@@ -12,7 +12,7 @@ public class Card {
 	public Card(String t){
 		type = t;
 	}
-	public String getType(){
+	public String getType(){	//return the cards type
 		String o = "O";
 		if(this.found == true){
 			return o;
@@ -23,7 +23,7 @@ public class Card {
 		
 		
 	}
-	public boolean check(Card card) {
+	public boolean check(Card card) {	//checks to see if the cards match
 		
 		if(type.equals(card.getType()) && card!=this){
 			this.found = true;
@@ -34,7 +34,7 @@ public class Card {
 		return false;
 		}
 	}
-	public boolean isFound() {
+	public boolean isFound() {	//card is already found indicator
 		
 		return this.found;
 	}

@@ -4,7 +4,8 @@ public class Player {
 	private int matches;
 	
 	
-	public Player(){
+	public Player(){	//Player class makes the player more dynamic. Multiple players have many components to them
+		//keeps track of their name and score
 
 		}
 	public String setName(String person){
