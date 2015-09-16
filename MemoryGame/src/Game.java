@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,7 +6,7 @@ import java.util.Scanner;
 public class Game {
 	
 
-public static void main(String [] args){
+public static void main(String [] args) throws FileNotFoundException{
 	Board board = new Board();
 	Scanner scan = new Scanner(System.in);
 	
@@ -17,10 +18,7 @@ public static void main(String [] args){
 	int r1 = 0;
 	int c1 = 0;
 	int turn = 0;
-	Player one = new Player();
-	Player two = new Player();
-	Player three = new Player();
-	Player four = new Player();
+	
 	int matchlimit = 0;
 	int playercount = 0;
 	
@@ -33,53 +31,21 @@ public static void main(String [] args){
 	matchlimit = scan.nextInt();
 	scan.nextLine();
 	
-	if(playercount == 1){
-		System.out.println("What is player 1's name?");
-		one.setName(scan.nextLine());
-		players.add(one);
-		System.out.println();
-	}if(playercount == 2){
-		System.out.println("What is player 1's name?");
-		one.setName(scan.nextLine());
-		players.add(one);
-		System.out.println("What is player 2's name?");
-		two.setName(scan.nextLine());
-		System.out.println();
-		players.add(two);
-	}if(playercount == 3){
-		System.out.println("What is player 1's name?");
-		one.setName(scan.nextLine());
-		players.add(one);
-		System.out.println("What is player 2's name?");
-		two.setName(scan.nextLine());
-		players.add(two);
-		System.out.println("What is player 3's name?");
-		three.setName(scan.nextLine());
-		players.add(three);
-		System.out.println();
-	}if(playercount == 4){
-		System.out.println("What is player 1's name?");
-		one.setName(scan.nextLine());
-		players.add(one);
-		System.out.println("What is player 2's name?");
-		two.setName(scan.nextLine());
-		players.add(two);
-		System.out.println("What is player 3's name?");
-		three.setName(scan.nextLine());
-		players.add(three);
-		System.out.println("What is player 4's name?");
-		four.setName(scan.nextLine());
-		players.add(four);
+	for(int i=0;i<playercount;i++){
+		System.out.println("What is player " + (i+1) + "'s name?");
+		Player p = new Player();
+		p.setName(scan.nextLine());
+		players.add(p);
 		System.out.println();
 	}
-	
+
 	for(;matches<matchlimit;turn=++turn % playercount){
 
 	
 		board.Print();
 		board.reveal(-1, -1, -1, -1);
 	
-		
+		System.out.println();
 		System.out.println(players.get(turn).getName() + "'s turn.");
 		
 		System.out.println("Enter the position of the card you're selecting(row, column): ");
@@ -114,10 +80,13 @@ public static void main(String [] args){
 	
 	}
 	System.out.println("Game Over.");
+	for(int i = 0;i<playercount;i++){
+	Player p = players.get(i);	
+	System.out.println(p.getName() + " got " + p.getMatches() + " points.");
 	
-	System.out.println(one.getName() + " got " + one.getMatches() + " points.");
-	System.out.println(two.getName() + " got " + two.getMatches() + " points.");
-	System.out.println(three.getName() + " got " + three.getMatches() + " points.");
+	
+	
+		}
 	}
 
 }	

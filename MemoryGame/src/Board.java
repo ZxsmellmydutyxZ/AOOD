@@ -11,11 +11,17 @@ public class Board {
 	
 	
 	ArrayList<String> ani = new ArrayList<String>();
+	
 	final int row = 3;
 	final int col = 6;
 	private Card[][] board;
 
-	public Board(){
+	public Board() throws FileNotFoundException{
+		
+		Scanner s = new Scanner(new File("src/Animals.txt"));
+		while(s.hasNext()){
+			ani.add(s.nextLine());
+		}
 	
 		for(int i = 0; i<ani.size();i++){
 			Collections.shuffle(ani);
