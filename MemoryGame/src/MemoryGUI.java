@@ -1,20 +1,19 @@
 import java.awt.EventQueue;
+import java.awt.GridLayout;
+import java.io.FileNotFoundException;
 
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
-import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.JTable;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTable;
 
 
 public class MemoryGUI {
 
 	private JFrame frame;
 	private JTable table;
-	private JTextField textField;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -38,6 +37,8 @@ public class MemoryGUI {
 	 */
 	public MemoryGUI() {
 		initialize();
+		
+		
 	}
 
 	/**
@@ -49,23 +50,32 @@ public class MemoryGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnOk = new JButton("ok");
-		btnOk.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		btnOk.setBounds(42, 79, 70, 51);
-		frame.getContentPane().add(btnOk);
-		
-		
-		textField = new JTextField();
-		textField.setBounds(149, 47, 230, 115);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 438, 225);
+		frame.getContentPane().add(panel);
+		createGrid(panel, 3, 6);
+		Board board = new Board();
 		
 		
 	}
-
+	public static void createGrid(JPanel panel, int numRows, int numCol)
+	{
+	    panel.setLayout(new GridLayout(numRows, numCol));
+	    for (int c = 0; c < numCol; c++)
+	    {
+	        for (int r = 0; r < numRows; r++)
+	        {
+	        JButton button = new JButton();
+	        button.addActionListener(new java.awt.event.ActionListener()
+	        {
+	            @Override
+	            public void actionPerformed(java.awt.event.ActionEvent evt)
+	            {
+	            
+	            }
+	        });
+	        panel.add(button);
+	        }
+	    }
+	}
 }

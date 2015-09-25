@@ -15,9 +15,15 @@ public class Board {
 	final int col = 6;
 	private Card[][] board;
 
-	public Board() throws FileNotFoundException{
+	public Board(){
 		
-		Scanner s = new Scanner(new File("src/Animals.txt")); //reads the card types from the file
+		Scanner s = null;
+		try {
+			s = new Scanner(new File("src/Animals.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} //reads the card types from the file
 		while(s.hasNext()){
 			ani.add(s.nextLine());
 		}
