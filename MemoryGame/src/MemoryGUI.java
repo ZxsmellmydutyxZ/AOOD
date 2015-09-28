@@ -1,17 +1,20 @@
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 
 public class MemoryGUI {
 
 	private JFrame frame;
 	private JTable table;
+	private JTextField textField;
 	
 	
 
@@ -44,9 +47,9 @@ public class MemoryGUI {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 454, 263);
+		frame.setBounds(100, 100, 653, 263);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -54,7 +57,12 @@ public class MemoryGUI {
 		panel.setBounds(0, 0, 438, 225);
 		frame.getContentPane().add(panel);
 		createGrid(panel, 3, 6);
-		Board board = new Board();
+		
+		textField = new JTextField();
+		textField.setBounds(448, 11, 66, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
 		
 		
 	}
@@ -65,13 +73,17 @@ public class MemoryGUI {
 	    {
 	        for (int r = 0; r < numRows; r++)
 	        {
+	        Board<JButton> bs = new Board<JButton>();
+	        	
 	        JButton button = new JButton();
+	        bs.add(button);
+	        
 	        button.addActionListener(new java.awt.event.ActionListener()
+	        
 	        {
-	            @Override
 	            public void actionPerformed(java.awt.event.ActionEvent evt)
 	            {
-	            
+	            	bs.get(0).setText("ok");
 	            }
 	        });
 	        panel.add(button);
