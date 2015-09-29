@@ -14,8 +14,7 @@ public class MemoryGUI {
 
 	private JFrame frame;
 	private JTable table;
-	private JTextField textField;
-	
+	static Board board = new Board();
 	
 
 	/**
@@ -42,6 +41,7 @@ public class MemoryGUI {
 		initialize();
 		
 		
+		
 	}
 
 	/**
@@ -49,19 +49,15 @@ public class MemoryGUI {
 	 */
 	public void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 653, 263);
+		frame.setBounds(100, 100, 653, 420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 438, 225);
+		panel.setBounds(0, 40, 637, 342);
 		frame.getContentPane().add(panel);
 		createGrid(panel, 3, 6);
 		
-		textField = new JTextField();
-		textField.setBounds(448, 11, 66, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
 		
 		
 		
@@ -73,17 +69,24 @@ public class MemoryGUI {
 	    {
 	        for (int r = 0; r < numRows; r++)
 	        {
-	        Board<JButton> bs = new Board<JButton>();
+	        ArrayList<JButton> bs = new ArrayList<JButton>();
+	        String card = board.getCard(r, c).getType();
 	        	
 	        JButton button = new JButton();
+	        button.setSize(50, 120);
 	        bs.add(button);
+	        button.setText(card);
 	        
 	        button.addActionListener(new java.awt.event.ActionListener()
 	        
 	        {
 	            public void actionPerformed(java.awt.event.ActionEvent evt)
 	            {
-	            	bs.get(0).setText("ok");
+	            	
+	            	
+	            
+	            	
+	            	
 	            }
 	        });
 	        panel.add(button);

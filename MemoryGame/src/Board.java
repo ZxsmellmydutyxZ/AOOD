@@ -14,6 +14,7 @@ public class Board {
 	final int row = 3;
 	final int col = 6;
 	private Card[][] board;
+	
 
 	public Board(){
 		
