@@ -1,8 +1,11 @@
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.List;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import javax.swing.Action;
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -64,29 +67,32 @@ public class MemoryGUI {
 	}
 	public static void createGrid(JPanel panel, int numRows, int numCol)
 	{
+		
 	    panel.setLayout(new GridLayout(numRows, numCol));
 	    for (int c = 0; c < numCol; c++)
 	    {
 	        for (int r = 0; r < numRows; r++)
 	        {
+	        JButton[][] jb = null;
 	        ArrayList<JButton> bs = new ArrayList<JButton>();
 	        String card = board.getCard(r, c).getType();
-	        	
-	        JButton button = new JButton();
-	        button.setSize(50, 120);
-	        bs.add(button);
-	        button.setText(card);
+	        final String aas = card;
 	        
-	        button.addActionListener(new java.awt.event.ActionListener()
+	        JButton button = new JButton();
+	        button.setSize(50, 180);
+	        bs.add(button);
+	        button.setText("X");
+	        
+	        final ArrayList<JButton> l = bs;
+	        bs.get(0).addActionListener(new java.awt.event.ActionListener()
 	        
 	        {
+	        	
 	            public void actionPerformed(java.awt.event.ActionEvent evt)
 	            {
 	            	
-	            	
-	            
-	            	
-	            	
+	            l.get(0).setText(aas);
+	   
 	            }
 	        });
 	        panel.add(button);
