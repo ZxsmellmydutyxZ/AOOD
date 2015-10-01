@@ -86,9 +86,10 @@ public class GameProperties extends JFrame {
 		btnNewButton.setBounds(120, 70, 89, 23);
 		panel.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("Players");
-		lblNewLabel.setBounds(49, 21, 46, 14);
-		panel.add(lblNewLabel);
+		
+		JLabel lblPlayers = new JLabel("Players");
+		lblPlayers.setBounds(49, 21, 46, 14);
+		panel.add(lblPlayers);
 		
 		JLabel lblMatches = new JLabel("Matches");
 		lblMatches.setBounds(233, 18, 46, 14);

@@ -37,6 +37,7 @@ public class MemoryGUI {
 	 * Launch the application.
 	 */
 	public void Start(int playercount, int matchlimit){
+		int playerc = playercount;
 		try {
 			MemoryGUI window = new MemoryGUI();
 			window.frame.setVisible(true);
@@ -73,6 +74,8 @@ public class MemoryGUI {
 		JLabel lblTurn = new JLabel("turn.");
 		lblTurn.setBounds(116, 44, 46, 14);
 		frame.getContentPane().add(lblTurn);
+		
+		int turn = 0;
 		
 		
 		
