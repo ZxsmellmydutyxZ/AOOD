@@ -11,31 +11,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 
 public class MemoryGUI {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTable table;
 	static Board board = new Board();
 	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MemoryGUI window = new MemoryGUI();
-					window.frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
+	
 
 	/**
 	 * Create the application.
@@ -43,6 +30,20 @@ public class MemoryGUI {
 	public MemoryGUI() {
 		initialize();
 		
+		
+		
+	}
+	/**
+	 * Launch the application.
+	 */
+	public void Start(int playercount, int matchlimit){
+		try {
+			MemoryGUI window = new MemoryGUI();
+			window.frame.setVisible(true);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -57,9 +58,21 @@ public class MemoryGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 40, 637, 342);
+		panel.setBounds(0, 69, 637, 313);
 		frame.getContentPane().add(panel);
 		createGrid(panel, 3, 6);
+		
+		JLabel lblPlayer = new JLabel("Player");
+		lblPlayer.setBounds(20, 44, 46, 14);
+		frame.getContentPane().add(lblPlayer);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(60, 44, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblTurn = new JLabel("turn.");
+		lblTurn.setBounds(116, 44, 46, 14);
+		frame.getContentPane().add(lblTurn);
 		
 		
 		
