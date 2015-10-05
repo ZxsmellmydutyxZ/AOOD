@@ -81,17 +81,20 @@ public class MemoryGUI {
 		frame.getContentPane().add(lblTurn);
 		
 		
-		for(int i = 0; i <= playercount;i++){
-			Object y = (Integer) i;
+		for(int i = 1; i <= playercount;i++){
+			 
 			String hh = Integer.toString(i);
-			players.add((Player) y);
+			players.set(i,Player e);
 			players.get(i).setName(hh);
 			
 		}
 		for(;matches<=matchlimit;turn=++turn % playercount){
 			
 			String pp = players.get(turn).getName();
+			
 			lblTurn.setText(players.get(turn).getName());
+			
+			
 			
 		}
 		
