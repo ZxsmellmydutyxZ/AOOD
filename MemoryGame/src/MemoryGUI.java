@@ -19,6 +19,11 @@ public class MemoryGUI {
 	JFrame frame;
 	private JTable table;
 	static Board board = new Board();
+	int turn = 0;
+	int matches = 0;
+	int playercount = 0;
+	int matchlimit = 0;
+	public ArrayList<Player> players = new ArrayList<Player>();
 	
 
 	
@@ -75,8 +80,20 @@ public class MemoryGUI {
 		lblTurn.setBounds(116, 44, 46, 14);
 		frame.getContentPane().add(lblTurn);
 		
-		int turn = 0;
 		
+		for(int i = 0; i <= playercount;i++){
+			Object y = (Integer) i;
+			String hh = Integer.toString(i);
+			players.add((Player) y);
+			players.get(i).setName(hh);
+			
+		}
+		for(;matches<=matchlimit;turn=++turn % playercount){
+			
+			String pp = players.get(turn).getName();
+			lblTurn.setText(players.get(turn).getName());
+			
+		}
 		
 		
 		
@@ -108,7 +125,7 @@ public class MemoryGUI {
 	            {
 	            	
 	            l.get(0).setText(aas);
-	   
+	            
 	            }
 	        });
 	        panel.add(button);

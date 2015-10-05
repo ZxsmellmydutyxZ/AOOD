@@ -92,7 +92,7 @@ public class GameProperties extends JFrame {
 		panel.add(lblPlayers);
 		
 		JLabel lblMatches = new JLabel("Matches");
-		lblMatches.setBounds(233, 18, 46, 14);
+		lblMatches.setBounds(233, 18, 62, 14);
 		panel.add(lblMatches);
 	}
 }
