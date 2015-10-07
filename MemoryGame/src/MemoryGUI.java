@@ -1,17 +1,11 @@
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.List;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import javax.swing.Action;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 
 
 public class MemoryGUI {
@@ -24,8 +18,10 @@ public class MemoryGUI {
 	int playercount = 0;
 	int matchlimit = 0;
 	public ArrayList<Player> players = new ArrayList<Player>();
-	
-
+	JLabel lblTurn;
+	JLabel lblNewLabel;
+	JLabel lblPlayer;
+	JLabel lblStats;
 	
 	
 
@@ -36,7 +32,84 @@ public class MemoryGUI {
 		initialize();
 		
 		
+	}
+	
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	public void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 771, 420);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 69, 637, 313);
+		frame.getContentPane().add(panel);
+		createGrid(panel, 3, 6);
+		
+		lblPlayer = new JLabel("Player");
+		lblPlayer.setBounds(20, 44, 46, 14);
+		frame.getContentPane().add(lblPlayer);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(60, 44, 46, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		lblTurn = new JLabel("turn.");
+		lblTurn.setBounds(116, 44, 46, 14);
+		frame.getContentPane().add(lblTurn);
+		
+		lblStats = new JLabel("New label");
+		lblStats.setBounds(644, 69, 46, 14);
+		frame.getContentPane().add(lblStats);
+		
+		
+		
+		
+		
+		
+	}
+	public static void createGrid(JPanel panel, int numRows, int numCol)
+	{
+		
+	    panel.setLayout(new GridLayout(numRows, numCol));
+	    for (int c = 0; c < numCol; c++)
+	    {
+	        for (int r = 0; r < numRows; r++)
+	        {
+	        
+	        ArrayList<JButton> bs = new ArrayList<JButton>();
+	       
+	        String card = board.getCard(r, c).getType();
+	        final String aas = card;
+	        
+	        JButton button = new JButton();
+	        button.setSize(50, 180);
+	        bs.get(0).setText(card);
+	        button.setText("X");
+	        
+	        
+	        bs.get(0).addActionListener(new java.awt.event.ActionListener() evt);
+	        
+	        {
+	        	
+	            public void actionPerformed(java.awt.event.ActionEvent evt)
+	            {
+	            	
+	            bs.get(0).setText(aas);
+	            
+	            
+	            }
+	        });
+	        panel.add(button);
+	        
+	        }
+	        
+	        
+	    }
+	    
 	}
 	/**
 	 * Launch the application.
@@ -50,89 +123,27 @@ public class MemoryGUI {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	public void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 653, 420);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 69, 637, 313);
-		frame.getContentPane().add(panel);
-		createGrid(panel, 3, 6);
-		
-		JLabel lblPlayer = new JLabel("Player");
-		lblPlayer.setBounds(20, 44, 46, 14);
-		frame.getContentPane().add(lblPlayer);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(60, 44, 46, 14);
-		frame.getContentPane().add(lblNewLabel);
-		
-		JLabel lblTurn = new JLabel("turn.");
-		lblTurn.setBounds(116, 44, 46, 14);
-		frame.getContentPane().add(lblTurn);
-		
-		
 		for(int i = 1; i <= playercount;i++){
 			 
 			String hh = Integer.toString(i);
-			players.set(i,Player e);
-			players.get(i).setName(hh);
+			Player e = players.get(i);
+			e.setName(hh);
+			players.set(i, e);
 			
 		}
+		String pp = null;
 		for(;matches<=matchlimit;turn=++turn % playercount){
 			
-			String pp = players.get(turn).getName();
 			
-			lblTurn.setText(players.get(turn).getName());
+			pp = players.get(turn).getName();
 			
-			
+			if(){
+				
+			}
 			
 		}
+		lblTurn.setText(pp);
 		
 		
-		
-	}
-	public static void createGrid(JPanel panel, int numRows, int numCol)
-	{
-		
-	    panel.setLayout(new GridLayout(numRows, numCol));
-	    for (int c = 0; c < numCol; c++)
-	    {
-	        for (int r = 0; r < numRows; r++)
-	        {
-	        JButton[][] jb = null;
-	        ArrayList<JButton> bs = new ArrayList<JButton>();
-	        String card = board.getCard(r, c).getType();
-	        final String aas = card;
-	        
-	        JButton button = new JButton();
-	        button.setSize(50, 180);
-	        bs.add(button);
-	        button.setText("X");
-	        
-	        final ArrayList<JButton> l = bs;
-	        bs.get(0).addActionListener(new java.awt.event.ActionListener()
-	        
-	        {
-	        	
-	            public void actionPerformed(java.awt.event.ActionEvent evt)
-	            {
-	            	
-	            l.get(0).setText(aas);
-	            
-	            }
-	        });
-	        panel.add(button);
-	        }
-	    }
 	}
 }
