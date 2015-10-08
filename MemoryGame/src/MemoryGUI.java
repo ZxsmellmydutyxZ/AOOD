@@ -7,8 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import java.awt.*;
+import java.awt.event.*;
 
-public class MemoryGUI {
+
+public class MemoryGUI implements ActionListener{
 
 	JFrame frame;
 	private JTable table;
@@ -24,6 +27,7 @@ public class MemoryGUI {
 	JLabel lblStats;
 	
 	
+	static ArrayList<JButton> bs = new ArrayList<JButton>();
 
 	/**
 	 * Create the application.
@@ -71,7 +75,7 @@ public class MemoryGUI {
 		
 		
 	}
-	public static void createGrid(JPanel panel, int numRows, int numCol)
+	public static void createGrid(JPanel panel, int numRows, int numCol) 
 	{
 		
 	    panel.setLayout(new GridLayout(numRows, numCol));
@@ -80,25 +84,24 @@ public class MemoryGUI {
 	        for (int r = 0; r < numRows; r++)
 	        {
 	        
-	        ArrayList<JButton> bs = new ArrayList<JButton>();
+	        
 	       
 	        String card = board.getCard(r, c).getType();
-	        final String aas = card;
+	        String aas = card;
 	        
 	        JButton button = new JButton();
 	        button.setSize(50, 180);
-	        bs.get(0).setText(card);
+	        bs.get(1).setText(card);
 	        button.setText("X");
 	        
+	        final String ls = aas;
+	        bs.get(0).addActionListener(new ActionListener(){
 	        
-	        bs.get(0).addActionListener(new java.awt.event.ActionListener() evt);
-	        
-	        {
-	        	
-	            public void actionPerformed(java.awt.event.ActionEvent evt)
+	       
+	            public void actionPerformed(java.awt.event.ActionEvent evt) 
 	            {
 	            	
-	            bs.get(0).setText(aas);
+	            bs.get(0).setText(ls);
 	            
 	            
 	            }
@@ -107,7 +110,7 @@ public class MemoryGUI {
 	        
 	        }
 	        
-	        
+	    	
 	    }
 	    
 	}
@@ -137,13 +140,18 @@ public class MemoryGUI {
 			
 			pp = players.get(turn).getName();
 			
-			if(){
-				
-			}
+			
 			
 		}
 		lblTurn.setText(pp);
 		
+		
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
 		
 	}
 }
