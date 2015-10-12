@@ -98,16 +98,16 @@ public class MemoryGUI implements ActionListener{
 	       
 	        button.addActionListener(new ActionListener(){
 	        	
-	         
-	        	final String ls = aas;
+	      
 	        	
 	        	
-	            public void actionPerformed(java.awt.event.ActionEvent evt) 
-	            {
-	            for(int j = 0; j<=18; j++){
-	            bs.get(j).setText(ls);
-	            }
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	           for(int i = 0; i<=18; i++){
 	            
+	            for(int j = 0; j<=0; j++){
+	            bs.get(j).setText(aas);
+	            }
+	           }
 	            
 	            
 	            }

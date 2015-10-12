@@ -42,6 +42,7 @@ public class GameProperties extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public GameProperties() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 361, 142);
