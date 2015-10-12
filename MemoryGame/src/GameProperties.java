@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 public class GameProperties extends JFrame {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */

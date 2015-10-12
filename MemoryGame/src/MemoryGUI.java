@@ -1,14 +1,14 @@
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-
-import java.awt.*;
-import java.awt.event.*;
 
 
 public class MemoryGUI implements ActionListener{
@@ -27,7 +27,7 @@ public class MemoryGUI implements ActionListener{
 	JLabel lblStats;
 	
 	
-	static ArrayList<JButton> bs = new ArrayList<JButton>();
+	
 
 	/**
 	 * Create the application.
@@ -76,38 +76,44 @@ public class MemoryGUI implements ActionListener{
 		
 	}
 	public static void createGrid(JPanel panel, int numRows, int numCol) 
+	
 	{
-		
+		final ArrayList<JButton> bs = new ArrayList<JButton>();
 	    panel.setLayout(new GridLayout(numRows, numCol));
 	    for (int c = 0; c < numCol; c++)
 	    {
 	        for (int r = 0; r < numRows; r++)
 	        {
-	        
-	        
 	       
+	        
+	        
 	        String card = board.getCard(r, c).getType();
-	        String aas = card;
+	        final String aas = card;
 	        
 	        JButton button = new JButton();
 	        button.setSize(50, 180);
-	        bs.get(1).setText(card);
-	        button.setText("X");
 	        
-	        final String ls = aas;
-	        bs.get(0).addActionListener(new ActionListener(){
+	        button.setIcon(new ImageIcon("/src/fdasfda.jpg"));	
 	        
 	       
+	        button.addActionListener(new ActionListener(){
+	        	
+	         
+	        	final String ls = aas;
+	        	
+	        	
 	            public void actionPerformed(java.awt.event.ActionEvent evt) 
 	            {
-	            	
-	            bs.get(0).setText(ls);
+	            for(int j = 0; j<=18; j++){
+	            bs.get(j).setText(ls);
+	            }
+	            
 	            
 	            
 	            }
 	        });
 	        panel.add(button);
-	        
+	        bs.add(button);
 	        }
 	        
 	    	
@@ -119,14 +125,12 @@ public class MemoryGUI implements ActionListener{
 	 */
 	public void Start(int playercount, int matchlimit){
 		int playerc = playercount;
-		try {
-			MemoryGUI window = new MemoryGUI();
-			window.frame.setVisible(true);
+		int matchl = matchlimit;
+		MemoryGUI window = new MemoryGUI();	
+		window.frame.setVisible(true);
 			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		for(int i = 1; i <= playercount;i++){
+		
+		for(int i = 1; i <= playerc;i++){
 			 
 			String hh = Integer.toString(i);
 			Player e = players.get(i);
@@ -135,7 +139,7 @@ public class MemoryGUI implements ActionListener{
 			
 		}
 		String pp = null;
-		for(;matches<=matchlimit;turn=++turn % playercount){
+		for(;matches<=matchl;turn=++turn % playerc){
 			
 			
 			pp = players.get(turn).getName();
