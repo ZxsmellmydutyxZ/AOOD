@@ -16,7 +16,7 @@ public class MemoryGUI implements ActionListener{
 	JFrame frame;
 	private JTable table;
 	static Board board = new Board();
-	int turn = 0;
+	int turn = 1;
 	int matches = 0;
 	int playercount = 0;
 	int matchlimit = 0;
@@ -78,7 +78,7 @@ public class MemoryGUI implements ActionListener{
 	public static void createGrid(JPanel panel, int numRows, int numCol) 
 	
 	{
-		final ArrayList<JButton> bs = new ArrayList<JButton>();
+		
 	    panel.setLayout(new GridLayout(numRows, numCol));
 	    for (int c = 0; c < numCol; c++)
 	    {
@@ -91,45 +91,44 @@ public class MemoryGUI implements ActionListener{
 	        final String aas = card;
 	        
 	        JButton button = new JButton();
+	        
 	        button.setSize(50, 180);
-	        
-	        button.setIcon(new ImageIcon("/src/fdasfda.jpg"));	
-	        
-	       
-	        button.addActionListener(new ActionListener(){
-	        	
 	      
+	        button.setIcon(new ImageIcon("fdasfda.jpg"));	
+	        
+	        final JButton bb = button;
+	        button.addActionListener(new ActionListener(){
+	        
+	        
+	       	
+	        
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	        	
+	        	bb.setText(aas);
 	        	
 	        	
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	           for(int i = 0; i<=18; i++){
-	            
-	            for(int j = 0; j<=0; j++){
-	            bs.get(j).setText(aas);
-	            }
-	           }
-	            
-	            
-	            }
+	        }
 	        });
 	        panel.add(button);
-	        bs.add(button);
+	       
 	        }
 	        
 	    	
 	    }
 	    
 	}
+	
 	/**
 	 * Launch the application.
 	 */
+	
 	public void Start(int playercount, int matchlimit){
+		
 		int playerc = playercount;
 		int matchl = matchlimit;
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
-			
-		
+				
 		for(int i = 1; i <= playerc;i++){
 			 
 			String hh = Integer.toString(i);
@@ -138,7 +137,7 @@ public class MemoryGUI implements ActionListener{
 			players.set(i, e);
 			
 		}
-		String pp = null;
+		String pp = " ";
 		for(;matches<=matchl;turn=++turn % playerc){
 			
 			
