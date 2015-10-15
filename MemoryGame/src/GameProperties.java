@@ -84,7 +84,7 @@ public class GameProperties extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				MemoryGUI window = new MemoryGUI();
-				window.Start(players, matchlimit);
+				window.Start(players,matchlimit);
 
 			}
 		});

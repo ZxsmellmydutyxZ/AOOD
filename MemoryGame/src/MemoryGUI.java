@@ -53,6 +53,7 @@ public class MemoryGUI implements ActionListener{
 		frame.getContentPane().add(panel);
 		createGrid(panel, 3, 6);
 		
+		
 		lblPlayer = new JLabel("Player");
 		lblPlayer.setBounds(20, 44, 46, 14);
 		frame.getContentPane().add(lblPlayer);
@@ -124,29 +125,24 @@ public class MemoryGUI implements ActionListener{
 	
 	public void Start(int playercount, int matchlimit){
 		
-		int playerc = playercount;
-		int matchl = matchlimit;
+		
+		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
 				
-		for(int i = 1; i <= playerc;i++){
+		for(int i = 1; i <= playercount;i++){
 			 
 			String hh = Integer.toString(i);
 			Player e = players.get(i);
 			e.setName(hh);
-			players.set(i, e);
+			players.add(e);
 			
 		}
-		String pp = " ";
-		for(;matches<=matchl;turn=++turn % playerc){
-			
-			
-			pp = players.get(turn).getName();
-			
-			
-			
-		}
-		lblTurn.setText(pp);
+		
+		String pp = players.get(1).getName();
+		
+	
+		lblNewLabel.setText(pp);
 		
 		
 	}
