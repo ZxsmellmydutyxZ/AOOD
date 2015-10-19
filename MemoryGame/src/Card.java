@@ -38,5 +38,8 @@ public class Card {
 		
 		return this.found;
 	}
-
+	public void flip(){
+		
+	}
+	
 }
