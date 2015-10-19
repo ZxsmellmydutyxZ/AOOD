@@ -17,6 +17,7 @@ public class MemoryGUI implements ActionListener{
 	private JTable table;
 	static Board board = new Board();
 	int turn = 1;
+	static int cardsflipped = 0;
 	int matches = 0;
 	int playercount = 0;
 	int matchlimit = 0;
@@ -104,8 +105,15 @@ public class MemoryGUI implements ActionListener{
 	       	
 	        
 	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	        	
-	        	bb.setText(aas);
+	        	if(cardsflipped <2){
+
+	        		bb.setText(aas);
+	        		cardsflipped++;
+	        		
+		        }else{
+		        	// didnt really!
+		        	System.out.println("createGrid " + cardsflipped);
+		        }
 	        	
 	        	
 	        }
