@@ -97,41 +97,31 @@ public class MemoryGUI implements ActionListener{
 	        button.setSize(50, 180);
 	        
 	        final JButton bb = button;
-	        final JButton bb1 = button;
-	        button.addActionListener(new ActionListener(){
 	        
+	        bb.addActionListener(new ActionListener(){
 	        
-	        public void actionPerformed1(ActionEvent arg0) {
-		    	if(cardsflipped<2){
-		    		bb1.setText(aas);
-		    	}else if(cardsflipped==2){
-		    		bb1.setText(" ");
-		    	}
-	        	
-		    	}
+	      
 	        
-	        public void actionPerformed(ActionEvent evt) {
+	       public void actionPerformed(ActionEvent evt) {
 	        	if(cardsflipped <2){
-	        		
-	        		
+	        			
 	        		bb.setText(aas);
 	        		
 	        		cardsflipped++;
 	        		
-		        
 		        }
 	        }
 	        });
+	        
 	        panel.add(button);
-	       
+	        
 	        }
 	    
-	        
-	        
-	    	
+	
+	          	
 	    }
 	    
-	}
+}
 	
 	/**
 	 * Launch the application.
@@ -146,18 +136,17 @@ public class MemoryGUI implements ActionListener{
 				
 		for(int i = 1; i <= playercount;i++){
 			 
+			
 			String hh = Integer.toString(i);
-			Player e = players.get(i);
+			Player e = new Player();
 			e.setName(hh);
 			players.add(e);
 			
 		}
 		
-		String pp = players.get(turn).getName();
+		String pp = players.get(0).getName();
 		
-	
 		lblNewLabel.setText(pp);
-		
 		
 	}
 
@@ -165,6 +154,7 @@ public class MemoryGUI implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 }

@@ -20,8 +20,7 @@ public class Card {
 			return type;
 
 		}
-		
-		
+			
 	}
 	public boolean check(Card card) {	//checks to see if the cards match
 		
