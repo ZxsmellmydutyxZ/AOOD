@@ -104,11 +104,11 @@ public class MemoryGUI implements ActionListener{
 	        
 	       public void actionPerformed(ActionEvent evt) {
 	        	if(cardsflipped <2){
-	        			
+	        		
 	        		bb.setText(aas);
 	        		
 	        		cardsflipped++;
-	        		
+	        		System.out.println(bb.location());
 		        }
 	        }
 	        });
@@ -129,14 +129,13 @@ public class MemoryGUI implements ActionListener{
 	
 	public void Start(int playercount, int matchlimit){
 		
-		
+		int playerc = playercount;
 		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
 				
-		for(int i = 1; i <= playercount;i++){
+		for(int i = 1; i <= playerc;i++){
 			 
-			
 			String hh = Integer.toString(i);
 			Player e = new Player();
 			e.setName(hh);
@@ -144,9 +143,7 @@ public class MemoryGUI implements ActionListener{
 			
 		}
 		
-		String pp = players.get(0).getName();
-		
-		lblNewLabel.setText(pp);
+		System.out.println(players.get(0).getName());
 		
 	}
 
