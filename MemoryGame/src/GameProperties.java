@@ -16,17 +16,22 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
 
 
 public class GameProperties extends JFrame {
-
+	private JComboBox<Object> cb1 = new JComboBox<Object>();
+	private JComboBox<Object> cb2 = new JComboBox<Object>();
 	private JPanel contentPane;
+	private int players;
+	private int matchlimit;
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,11 +61,11 @@ public class GameProperties extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JComboBox cb1 = new JComboBox();
+		
 		cb1.setBounds(49, 43, 46, 20);
 		panel.add(cb1);
 
-		JComboBox cb2 = new JComboBox();
+		
 		cb2.setBounds(233, 43, 46, 20);
 		panel.add(cb2);
 
@@ -75,14 +80,14 @@ public class GameProperties extends JFrame {
 
 		}
 
-		final int players = cb1.getSelectedIndex();
-		final int matchlimit = cb2.getSelectedIndex();
-
+		
+		
 		JButton btnNewButton = new JButton("PLAY!");
 		btnNewButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-
+				players = cb1.getSelectedIndex();
+				matchlimit = cb2.getSelectedIndex();
 				MemoryGUI window = new MemoryGUI();
 				window.Start(players,matchlimit);
 

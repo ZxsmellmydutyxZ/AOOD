@@ -36,7 +36,9 @@ public class Card {
 	public boolean isFound() {	//card is already found indicator
 		
 		return this.found;
+		
 	}
+	
 	public void flip(){
 		
 	}

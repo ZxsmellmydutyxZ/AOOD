@@ -109,6 +109,7 @@ public class MemoryGUI implements ActionListener{
 	        		
 	        		cardsflipped++;
 	        		System.out.println(bb.location());
+	        		
 		        }
 	        }
 	        });
@@ -134,16 +135,16 @@ public class MemoryGUI implements ActionListener{
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
 				
-		for(int i = 1; i <= playerc;i++){
+		for(int i = 0; i <= playerc;i++){
 			 
 			String hh = Integer.toString(i);
 			Player e = new Player();
 			e.setName(hh);
 			players.add(e);
-			
+			System.out.println(players.get(i).getName());
 		}
 		
-		System.out.println(players.get(0).getName());
+		
 		
 	}
 
