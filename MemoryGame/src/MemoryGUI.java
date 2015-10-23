@@ -16,17 +16,17 @@ public class MemoryGUI implements ActionListener{
 	JFrame frame;
 	private JTable table;
 	static Board board = new Board();
-	int turn = 1;
+	static int turn = 1;
 	static int cardsflipped = 0;
 	int matches = 0;
-	int playercount = 0;
+	static int playercounter = 0;
 	int matchlimit = 0;
 	public ArrayList<Player> players = new ArrayList<Player>();
 	JLabel lblTurn;
 	JLabel lblNewLabel;
 	JLabel lblPlayer;
 	JLabel lblStats;
-	
+	public static Card[][] cards;
 	
 	
 
@@ -86,9 +86,9 @@ public class MemoryGUI implements ActionListener{
 	    {
 	        for (int r = 0; r < numRows; r++)
 	        {
-	       
+	        	
 	        
-	        
+	        cards[r][c] = board.getCard(r, c);
 	        String card = board.getCard(r, c).getType();
 	        final String aas = card;
 	        
@@ -105,16 +105,20 @@ public class MemoryGUI implements ActionListener{
 	       public void actionPerformed(ActionEvent evt) {
 	        	if(cardsflipped <2){
 	        		
+	        		
 	        		bb.setText(aas);
 	        		
 	        		cardsflipped++;
 	        		System.out.println(bb.location());
 	        		
+		       
+	       }else{
+		        	turn+=turn%playercounter;
 		        }
 	        }
 	        });
 	        
-	        panel.add(button);
+	        panel.add(bb);
 	        
 	        }
 	    
@@ -130,25 +134,25 @@ public class MemoryGUI implements ActionListener{
 	
 	public void Start(int playercount, int matchlimit){
 		
-		int playerc = playercount;
+		playercounter = playercount;
 		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
 				
-		for(int i = 0; i <= playerc;i++){
+		for(int i = 0; i <= playercounter;i++){
 			 
 			String hh = Integer.toString(i);
 			Player e = new Player();
 			e.setName(hh);
 			players.add(e);
-			System.out.println(players.get(i).getName());
+			System.out.println(players.get(i).getName() );
 		}
 		
 		
 		
 	}
 
-
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
