@@ -27,7 +27,8 @@ public class MemoryGUI implements ActionListener{
 	JLabel lblPlayer;
 	JLabel lblStats;
 	public static Card[][] cards;
-	
+	public int r = 3;
+	public int c = 6;
 	
 
 	/**
@@ -88,7 +89,7 @@ public class MemoryGUI implements ActionListener{
 	        {
 	        	
 	        
-	        cards[r][c] = board.getCard(r, c);
+	        
 	        String card = board.getCard(r, c).getType();
 	        final String aas = card;
 	        
@@ -103,19 +104,39 @@ public class MemoryGUI implements ActionListener{
 	      
 	        
 	       public void actionPerformed(ActionEvent evt) {
-	        	if(cardsflipped <2){
+	        	int x = 0;
+	        	int y = 0;
+	        if(cardsflipped<2){
+	        	
+	    	   switch (bb.getX()){
+	    	   case 0: x = 0;
+	    	   break;
+	    	   case 106: x = 1;
+	    	   break;
+	    	   case 212: x = 2;
+	    	   break;
+	    	   case 318: x = 3;
+	    	   break;
+	    	   case 424: x = 4;
+	    	   break;
+	    	   case 530: x = 5;
+	    	   }
+	    	   switch (bb.getY()){
+	    	   case 0: y = 0;
+	    	   break;
+	    	   case 104: y = 1;
+	    	   break;
+	    	   case 208: y = 2;
+	    	   break;
+	    	   }
 	        		
-	        		
-	        		bb.setText(aas);
+	        		board.getCard(y,x).actionPerformed(evt);;
+	        		//bb.setText(aas);
 	        		
 	        		cardsflipped++;
 	        		System.out.println(bb.location());
-	        		
-		       
-	       }else{
-		        	turn+=turn%playercounter;
-		        }
 	        }
+	       }
 	        });
 	        
 	        panel.add(bb);
