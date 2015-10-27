@@ -1,6 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 
 public class Card implements ActionListener{
 
@@ -41,9 +43,14 @@ public class Card implements ActionListener{
 	public void flip(){
 		
 	}
+	public void actionPerformed(JButton button, ActionEvent arg0) {
+		button.setText(this.getType());
+		System.out.println(this.getType());
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println(this.getType());
+		// TODO Auto-generated method stub
 		
 	}
 	

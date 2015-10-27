@@ -97,10 +97,10 @@ public class MemoryGUI implements ActionListener{
 	        JButton button1 = new JButton();
 	        
 	        button.setSize(50, 180);
-	        button1.setSize(50,180);
+	        
 	        
 	        final JButton bb = button;
-	        final JButton bb1 = button1;
+	        
 	        
 	        bb.addActionListener(new ActionListener(){
 	        
@@ -109,7 +109,7 @@ public class MemoryGUI implements ActionListener{
 	       public void actionPerformed(ActionEvent evt) {
 	        	int x = 0;
 	        	int y = 0;
-	        if(cardsflipped<2){
+	        if(cardsflipped<18){
 	        	
 	    	   switch (bb.getX()){
 	    	   case 0: x = 0;
@@ -133,7 +133,7 @@ public class MemoryGUI implements ActionListener{
 	    	   break;
 	    	   }
 	        		
-	        		board.getCard(y,x).actionPerformed(evt);;
+	        		board.getCard(y,x).actionPerformed(bb,evt);;
 	        		//bb.setText(aas);
 	        		
 	        		cardsflipped++;
