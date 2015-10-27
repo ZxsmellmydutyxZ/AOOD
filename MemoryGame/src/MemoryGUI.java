@@ -94,10 +94,13 @@ public class MemoryGUI implements ActionListener{
 	        final String aas = card;
 	        
 	        JButton button = new JButton();
+	        JButton button1 = new JButton();
 	        
 	        button.setSize(50, 180);
+	        button1.setSize(50,180);
 	        
 	        final JButton bb = button;
+	        final JButton bb1 = button1;
 	        
 	        bb.addActionListener(new ActionListener(){
 	        
