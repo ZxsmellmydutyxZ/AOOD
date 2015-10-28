@@ -18,7 +18,7 @@ public class MemoryGUI implements ActionListener{
 	private JTable table;
 	static Board board = new Board();
 	static int turn = 1;
-	static int playerturn = turn-1;
+	
 	static int cardsflipped = 0;
 	static String matches = "1";
 	static int playercounter = 0;
@@ -43,6 +43,7 @@ public class MemoryGUI implements ActionListener{
 	/**
 	 * Create the application.
 	 */
+	
 	public MemoryGUI() {
 		initialize();
 		
@@ -220,7 +221,7 @@ public class MemoryGUI implements ActionListener{
 		        	
 		        if(players.get(i).getMatches() == matchlimiter+1){
 		        	GameOver frame = new GameOver();
-		        	frame.ender(players);
+		        	frame.ender(players.get(i));
 		       
 		        	
 		        	}

@@ -15,7 +15,6 @@ public class GameOver extends JFrame {
 	ArrayList<Player> people = new ArrayList<Player>();
 	static JLabel lblNewLabel;
 	int size = people.size();
-	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -48,34 +47,14 @@ public class GameOver extends JFrame {
 
 		lblNewLabel = new JLabel();
 
-		lblNewLabel.setBounds(31, 31, 358, 191);
+		lblNewLabel.setBounds(31, 31, 358, 55);
 		panel.add(lblNewLabel);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-			},
-			new String[] {
-				"Player", "Score"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, Object.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		});
-		table.setBounds(10, 243, 404, -231);
-		panel.add(table);
 		
 		
 	}
 	
-	public void ender(ArrayList<Player> p){
+	public void ender(Player p){
 		this.setVisible(true);
-		p = people;
-		
+		lblNewLabel.setText(p.getName() + " wins!");
 	}
 }
