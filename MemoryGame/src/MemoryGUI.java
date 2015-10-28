@@ -97,7 +97,7 @@ public class MemoryGUI implements ActionListener{
 	        {
 	        	
 	        
-	        Card cardcard = board.getCard(r,c);
+	        final Card cardcard = board.getCard(r,c);
 	        String cardName = cardcard.getType();
 	       
 	        
@@ -110,10 +110,10 @@ public class MemoryGUI implements ActionListener{
 	        button.setSize(50, 180);
 	        cardcard.setButton(button);
 	        
-	        final JButton bb = button;
+	        final JButton bb = cardcard.getButton();
 	        
 	        
-	        bb.addActionListener(new ActionListener(){
+	        cardcard.getButton().addActionListener(new ActionListener(){
 	        
 	      
 	        
@@ -122,7 +122,7 @@ public class MemoryGUI implements ActionListener{
 	    	   int x = 0;
 	        	int y = 0;
 	        
-	        if(cardsflipped<=1){
+	        if(cardsflipped<2){
 	    	   switch (bb.getX()){
 	    	   case 0: x = 0;
 	    	   break;
@@ -145,12 +145,12 @@ public class MemoryGUI implements ActionListener{
 	    	   break;
 	    	   }
 	    	   		
-	        		Card card = board.getCard(y,x);
+	        		Card card = cardcard;
 	        		
-	        		card.actionPerformed(bb,evt);;
+	        		card.actionPerformed(evt);;
 	        		
 	        		//bb.setText(aas);
-	        		evt.getModifiers();
+	        		
 	        		cardsflipped++;
 	        		System.out.println(bb.location());
 	        		pickedcards.add(card);
@@ -177,6 +177,7 @@ public class MemoryGUI implements ActionListener{
 	    	    {
 	    	        for (int r = 0; r < 6; r++)
 	    	        {
+	    	        	
 	    	        	board.getCard(c,r).clearButtons();
 	    	        	
 	    	        	
@@ -186,6 +187,7 @@ public class MemoryGUI implements ActionListener{
 	        	pickedcards.clear();
 	        	System.out.println(pickedcards);
 	        	cardsflipped = 0;
+	        	
 	        }
 	       }
 	        });
@@ -211,7 +213,7 @@ public class MemoryGUI implements ActionListener{
 		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
-		board.Print();	
+			
 		for(int i = 0; i <= playercounter;i++){
 			 
 			String hh = Integer.toString(i);

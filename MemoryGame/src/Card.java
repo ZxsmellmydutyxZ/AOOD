@@ -6,7 +6,7 @@ import javax.swing.JButton;
 
 public class Card implements ActionListener{
 	
-	JButton butt = new JButton();
+	public JButton butt = new JButton();
 	Object d;
 	private String type;
 	private boolean found = false;
@@ -22,12 +22,13 @@ public class Card implements ActionListener{
 	}
 	
 	public String getType(){	//return the cards type
-		/*String o = "O";
+		
+		String o = " ";
 		if(this.found == true){
 			return o;
-		}else{*/
+		}else{
 			return type;
-
+		}
 		
 			
 	}
@@ -51,8 +52,8 @@ public class Card implements ActionListener{
 	public void flip(){
 		
 	}
-	public void actionPerformed(JButton button, ActionEvent arg0) {
-		button.setText(this.getType());
+	public void actionPerformed(ActionEvent arg0) {
+		butt.setText(this.getType());
 		System.out.println(this.getType());
 		
 	}
@@ -63,11 +64,15 @@ public class Card implements ActionListener{
 		}else{
 		butt.setText(" ");
 		}
-		
+			
 		
 	}
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public JButton getButton(){
+		
+		return butt;
+		
+	}
+	public void actionPerformed1(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}

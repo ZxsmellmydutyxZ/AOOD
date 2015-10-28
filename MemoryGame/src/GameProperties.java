@@ -86,6 +86,7 @@ public class GameProperties extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
+				
 				players = cb1.getSelectedIndex();
 				matchlimit = cb2.getSelectedIndex();
 				MemoryGUI window = new MemoryGUI();
