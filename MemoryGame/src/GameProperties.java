@@ -79,7 +79,7 @@ public class GameProperties extends JFrame {
 			cb1.addItem(x);
 		}
 
-		for(int j = 1; j<=9; j++){
+		for(int j = 1; j<=5; j++){
 			Object x1 = (Integer) j;
 			cb2.addItem(x1);
 
