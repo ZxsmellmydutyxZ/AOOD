@@ -51,6 +51,7 @@ public class MemoryGUI implements ActionListener{
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 771, 420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,16 +97,18 @@ public class MemoryGUI implements ActionListener{
 	        {
 	        	
 	        
+	        Card cardcard = board.getCard(r,c);
+	        String cardName = cardcard.getType();
+	       
 	        
-	        String card = board.getCard(r, c).getType();
-	        
-	        final String aas = card;
+	        final String aas = cardName;
 	        
 	        JButton button = new JButton();
 	        JButton button1 = new JButton();
 	        
-	        button.setSize(50, 180);
 	        
+	        button.setSize(50, 180);
+	        cardcard.setButton(button);
 	        
 	        final JButton bb = button;
 	        
@@ -142,7 +145,9 @@ public class MemoryGUI implements ActionListener{
 	    	   }
 	    	   		
 	        		Card card = board.getCard(y,x);
+	        		
 	        		card.actionPerformed(bb,evt);;
+	        		
 	        		//bb.setText(aas);
 	        		evt.getModifiers();
 	        		cardsflipped++;
@@ -155,6 +160,7 @@ public class MemoryGUI implements ActionListener{
 	        		if(pickedcards.size()>1){
 	        			if(pickedcards.get(0).check(pickedcards.get(1))){
 	        				System.out.println("wow");
+	        				
 	        			}
 	        			
 	        		}
@@ -165,9 +171,20 @@ public class MemoryGUI implements ActionListener{
 	        	if(turn == playercounter){
 	        	turn = 0;
 	        	}
+	        	 
+	        	for (int c = 0; c < 3; c++)
+	    	    {
+	    	        for (int r = 0; r < 6; r++)
+	    	        {
+	    	        	board.getCard(c,r).clearButtons();
+	    	        	
+	    	        	
+	    	        }
+	    	        }
+	      	        	
 	        	pickedcards.clear();
 	        	System.out.println(pickedcards);
-	        	
+	        	cardsflipped = 0;
 	        }
 	       }
 	        });
@@ -193,7 +210,7 @@ public class MemoryGUI implements ActionListener{
 		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
-				
+		board.Print();	
 		for(int i = 0; i <= playercounter;i++){
 			 
 			String hh = Integer.toString(i);

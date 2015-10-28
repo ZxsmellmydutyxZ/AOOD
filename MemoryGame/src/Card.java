@@ -5,7 +5,8 @@ import javax.swing.JButton;
 
 
 public class Card implements ActionListener{
-
+	
+	JButton butt = new JButton();
 	Object d;
 	private String type;
 	private boolean found = false;
@@ -13,14 +14,21 @@ public class Card implements ActionListener{
 	public Card(String t){
 		type = t;
 	}
+	
+	public void setButton(JButton boot){
+		butt = boot;
+		
+
+	}
+	
 	public String getType(){	//return the cards type
-		String o = "O";
+		/*String o = "O";
 		if(this.found == true){
 			return o;
-		}else{
+		}else{*/
 			return type;
 
-		}
+		
 			
 	}
 	public boolean check(Card card) {	//checks to see if the cards match
@@ -46,6 +54,15 @@ public class Card implements ActionListener{
 	public void actionPerformed(JButton button, ActionEvent arg0) {
 		button.setText(this.getType());
 		System.out.println(this.getType());
+		
+	}
+	public void clearButtons(){
+		if(this.found){
+		butt.setText("("+type+")");
+		}else{
+		butt.setText(" ");
+		}
+		
 		
 	}
 	@Override
