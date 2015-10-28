@@ -57,6 +57,7 @@ public class Card implements ActionListener{
 		
 	}
 	public void clearButtons(){
+		
 		if(this.found){
 		butt.setText("("+type+")");
 		}else{

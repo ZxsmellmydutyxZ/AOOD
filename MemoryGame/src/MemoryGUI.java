@@ -118,10 +118,11 @@ public class MemoryGUI implements ActionListener{
 	      
 	        
 	       public void actionPerformed(ActionEvent evt) {
-	        	int x = 0;
+	        	
+	    	   int x = 0;
 	        	int y = 0;
 	        
-	        if(cardsflipped<2){
+	        if(cardsflipped<=1){
 	    	   switch (bb.getX()){
 	    	   case 0: x = 0;
 	    	   break;
@@ -179,7 +180,7 @@ public class MemoryGUI implements ActionListener{
 	    	        	board.getCard(c,r).clearButtons();
 	    	        	
 	    	        	
-	    	        }
+	    	        	}
 	    	        }
 	      	        	
 	        	pickedcards.clear();
