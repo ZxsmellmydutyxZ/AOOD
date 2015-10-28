@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,16 +18,21 @@ public class MemoryGUI implements ActionListener{
 	private JTable table;
 	static Board board = new Board();
 	static int turn = 1;
+	
 	static int cardsflipped = 0;
 	int matches = 0;
 	static int playercounter = 0;
 	int matchlimit = 0;
+	static ArrayList<Card> pickedcards = new ArrayList<Card>();
+	
+	public static int pick = 0;
 	public ArrayList<Player> players = new ArrayList<Player>();
 	JLabel lblTurn;
 	JLabel lblNewLabel;
 	JLabel lblPlayer;
 	JLabel lblStats;
-	public static Card[][] cards;
+	
+	//public static Card[][] cards;
 	public int r = 3;
 	public int c = 6;
 	
@@ -60,9 +66,10 @@ public class MemoryGUI implements ActionListener{
 		lblPlayer.setBounds(20, 44, 46, 14);
 		frame.getContentPane().add(lblPlayer);
 		
-		lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel(String.valueOf(turn));
 		lblNewLabel.setBounds(60, 44, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
+		
 		
 		lblTurn = new JLabel("turn.");
 		lblTurn.setBounds(116, 44, 46, 14);
@@ -91,6 +98,7 @@ public class MemoryGUI implements ActionListener{
 	        
 	        
 	        String card = board.getCard(r, c).getType();
+	        
 	        final String aas = card;
 	        
 	        JButton button = new JButton();
@@ -109,8 +117,8 @@ public class MemoryGUI implements ActionListener{
 	       public void actionPerformed(ActionEvent evt) {
 	        	int x = 0;
 	        	int y = 0;
-	        if(cardsflipped<18){
-	        	
+	        
+	        if(cardsflipped<2){
 	    	   switch (bb.getX()){
 	    	   case 0: x = 0;
 	    	   break;
@@ -132,17 +140,40 @@ public class MemoryGUI implements ActionListener{
 	    	   case 208: y = 2;
 	    	   break;
 	    	   }
-	        		
-	        		board.getCard(y,x).actionPerformed(bb,evt);;
+	    	   		
+	        		Card card = board.getCard(y,x);
+	        		card.actionPerformed(bb,evt);;
 	        		//bb.setText(aas);
-	        		
+	        		evt.getModifiers();
 	        		cardsflipped++;
 	        		System.out.println(bb.location());
+	        		pickedcards.add(card);
+	        		
+	        		pick++;
+	        		System.out.println(pickedcards.size());
+	        		
+	        		if(pickedcards.size()>1){
+	        			if(pickedcards.get(0).check(pickedcards.get(1))){
+	        				System.out.println("wow");
+	        			}
+	        			
+	        		}
+	        }else{
+	        	for(;turn<playercounter;){
+	        	turn++;
+	        	}
+	        	if(turn == playercounter){
+	        	turn = 0;
+	        	}
+	        	pickedcards.clear();
+	        	System.out.println(pickedcards);
+	        	
 	        }
 	       }
 	        });
 	        
 	        panel.add(bb);
+	        
 	        
 	        }
 	    
