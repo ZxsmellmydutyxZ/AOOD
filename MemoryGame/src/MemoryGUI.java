@@ -15,7 +15,9 @@ import java.awt.Color;
 
 
 public class MemoryGUI implements ActionListener{
-
+	
+	
+	//initialize all components on the board.
 	static JFrame frmWelcomeToMemory;
 	private JTable table;
 	static Board board = new Board();
@@ -33,7 +35,7 @@ public class MemoryGUI implements ActionListener{
 	static JLabel lblNewLabel;
 	static JLabel lblStats;
 	static JLabel lblNewLabel_1;
-	//public static Card[][] cards;
+	
 	public int r = 3;
 	public int c = 6;
 	private JLabel lblScore;
@@ -61,7 +63,7 @@ public class MemoryGUI implements ActionListener{
 		
 		
 		
-		
+		//initialize JFrame component properties.
 		
 		frmWelcomeToMemory = new JFrame();
 		frmWelcomeToMemory.setTitle("Welcome to Memory");
@@ -109,7 +111,7 @@ public class MemoryGUI implements ActionListener{
 		
 		
 		
-		
+		//creates a grid of buttons/cards.
 	}
 	public static void createGrid(JPanel panel, int numRows, int numCol) 
 	
