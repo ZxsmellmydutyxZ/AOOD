@@ -14,7 +14,7 @@ import javax.swing.JTable;
 
 public class MemoryGUI implements ActionListener{
 
-	JFrame frame;
+	static JFrame frame;
 	private JTable table;
 	static Board board = new Board();
 	static int turn = 1;
@@ -22,7 +22,7 @@ public class MemoryGUI implements ActionListener{
 	static int cardsflipped = 0;
 	static String matches = "1";
 	static int playercounter = 0;
-	int matchlimit = 0;
+	static int matchlimiter = 0;
 	static ArrayList<Card> pickedcards = new ArrayList<Card>();
 	
 	public static int pick = 0;
@@ -216,6 +216,15 @@ public class MemoryGUI implements ActionListener{
 	        	pickedcards.clear();
 	        	System.out.println(pickedcards);
 	        	cardsflipped = 0;
+	        	for(int i = 0; i<=playercounter; i++){
+		        	
+		        if(players.get(i).getMatches() == matchlimiter+1){
+		        	GameOver frame = new GameOver();
+		        	frame.ender(players);
+		       
+		        	
+		        	}
+		        }
 	        	
 	        }
 	       }
@@ -224,7 +233,7 @@ public class MemoryGUI implements ActionListener{
 	        panel.add(bb);
 	        
 	        
-	        }
+	       }
 	    
 	
 	          	
@@ -239,6 +248,9 @@ public class MemoryGUI implements ActionListener{
 public void Start(int playercount, int matchlimit){
 		
 		playercounter = playercount;
+		matchlimiter = matchlimit;
+		
+		
 		
 		MemoryGUI window = new MemoryGUI();	
 		window.frame.setVisible(true);
@@ -256,6 +268,7 @@ public void Start(int playercount, int matchlimit){
 		
 		
 	}
+
 
 	
 	@Override
