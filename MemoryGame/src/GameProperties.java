@@ -11,6 +11,7 @@ import java.awt.FlowLayout;
 import javax.swing.JTextField;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 
 import javax.swing.JButton;
 
@@ -49,18 +50,22 @@ public class GameProperties extends JFrame {
 	 */
 	
 	public GameProperties() {
+		setTitle("Memory Game");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 361, 142);
+		
+		
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 0, 335, 104);
 		contentPane.add(panel);
 		panel.setLayout(null);
-
+		panel.setBackground(Color.LIGHT_GRAY);
 		
 		cb1.setBounds(49, 43, 46, 20);
 		panel.add(cb1);

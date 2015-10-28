@@ -10,11 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import java.awt.Font;
+import java.awt.Color;
 
 
 public class MemoryGUI implements ActionListener{
 
-	static JFrame frame;
+	static JFrame frmWelcomeToMemory;
 	private JTable table;
 	static Board board = new Board();
 	static int turn = 1;
@@ -61,36 +63,47 @@ public class MemoryGUI implements ActionListener{
 		
 		
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 771, 420);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmWelcomeToMemory = new JFrame();
+		frmWelcomeToMemory.setTitle("Welcome to Memory");
+		frmWelcomeToMemory.getContentPane().setBackground(Color.CYAN);
+		frmWelcomeToMemory.setBounds(100, 100, 650, 420);
+		frmWelcomeToMemory.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmWelcomeToMemory.getContentPane().setLayout(null);
+		
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 69, 637, 313);
-		frame.getContentPane().add(panel);
+		frmWelcomeToMemory.getContentPane().add(panel);
 		createGrid(panel, 3, 6);
+		
 		
 		lblNewLabel = new JLabel("Player 0's ");
 		lblNewLabel.setBounds(10, 44, 66, 14);
-		frame.getContentPane().add(lblNewLabel);
+		frmWelcomeToMemory.getContentPane().add(lblNewLabel);
 		
 		
 		lblTurn = new JLabel("turn.");
-		lblTurn.setBounds(86, 44, 46, 14);
-		frame.getContentPane().add(lblTurn);
+		lblTurn.setBounds(69, 44, 46, 14);
+		frmWelcomeToMemory.getContentPane().add(lblTurn);
 		
 		lblStats = new JLabel(" ");
-		lblStats.setBounds(644, 88, 46, 14);
-		frame.getContentPane().add(lblStats);
+		lblStats.setBounds(578, 44, 46, 14);
+		frmWelcomeToMemory.getContentPane().add(lblStats);
 		
 		lblNewLabel_1 = new JLabel("Player 0's ");
-		lblNewLabel_1.setBounds(637, 44, 63, 14);
-		frame.getContentPane().add(lblNewLabel_1);
+		lblNewLabel_1.setBounds(461, 44, 63, 14);
+		frmWelcomeToMemory.getContentPane().add(lblNewLabel_1);
 		
-		lblScore = new JLabel("score.");
-		lblScore.setBounds(699, 44, 46, 14);
-		frame.getContentPane().add(lblScore);
+		lblScore = new JLabel("score:");
+		lblScore.setBounds(522, 44, 46, 14);
+		frmWelcomeToMemory.getContentPane().add(lblScore);
+		
+		JLabel lblMemory = new JLabel("MEMORY!");
+		lblMemory.setForeground(Color.BLUE);
+		lblMemory.setFont(new Font("Verdana", Font.BOLD, 20));
+		lblMemory.setBounds(256, 11, 135, 26);
+		frmWelcomeToMemory.getContentPane().add(lblMemory);
 		
 		
 		
@@ -120,6 +133,7 @@ public class MemoryGUI implements ActionListener{
 	        
 	        
 	        button.setSize(50, 180);
+	        button.setBackground(Color.LIGHT_GRAY);
 	        cardcard.setButton(button);
 	        
 	        final JButton bb = cardcard.getButton();
@@ -254,7 +268,7 @@ public void Start(int playercount, int matchlimit){
 		
 		
 		MemoryGUI window = new MemoryGUI();	
-		window.frame.setVisible(true);
+		window.frmWelcomeToMemory.setVisible(true);
 			
 		
 		for(int i = 0; i <= playercounter;i++){
