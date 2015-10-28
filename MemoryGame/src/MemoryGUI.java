@@ -174,25 +174,34 @@ public class MemoryGUI implements ActionListener{
 	        			if(pickedcards.get(0).check(pickedcards.get(1))){
 	        				System.out.println("wow");
 
-		        				players.get(playerturn).addMatch();
+		        				players.get(turn-1).addMatch();
 		        				matches = String.valueOf(players.get(turn-1).getMatches());
+		        				
 		        				lblStats.setText(matches);
 	        				
+		        				System.out.println(players.get(turn-1).getName() + matches);
+		        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
 	        			}
-	        			if(++turn>playercounter+1){
-	        			turn = 1;
 	        			
-	        			}
 	        	        
 	        			
 	        			
-	        			lblNewLabel.setText(players.get(turn-1).getName() + "'s");
-	        			lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
+	        			
 	        			
 	        		}
 	        }else{
 	        	
-	        	 
+	        	if(++turn>playercounter+1){
+        			turn = 1;
+        			
+        			}
+	        	
+	        	lblNewLabel.setText(players.get(turn-1).getName() + "'s");
+	        	lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
+	        	matches = String.valueOf(players.get(turn-1).getMatches());
+	        	lblStats.setText(matches);
+	        	
+	        	
 	        	for (int c = 0; c < 3; c++)
 	    	    {
 	    	        for (int r = 0; r < 6; r++)
