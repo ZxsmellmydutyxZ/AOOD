@@ -47,7 +47,7 @@ public class MemoryGUI implements ActionListener{
 	/**
 	 * Create the application.
 	 */
-	
+
 	public MemoryGUI() {
 		initialize();
 		
@@ -141,6 +141,8 @@ public class MemoryGUI implements ActionListener{
 	        final JButton bb = cardcard.getButton();
 	        
 	        
+	        
+	        //adds listener to the cards.
 	        cardcard.getButton().addActionListener(new ActionListener(){
 
 	      
@@ -150,6 +152,7 @@ public class MemoryGUI implements ActionListener{
 	    	   int x = 0;
 	        	int y = 0;
 	        
+	        //limits the selected card limit to 2 cards.	
 	        if(cardsflipped<2){
 	    	   switch (bb.getX()){
 	    	   case 0: x = 0;
@@ -188,6 +191,7 @@ public class MemoryGUI implements ActionListener{
 	        		
 	        		if(pickedcards.size()>1){
 	        			
+	        			//checks to see if the cards selected match
 	        			if(pickedcards.get(0).check(pickedcards.get(1))){
 	        				System.out.println("wow");
 
@@ -207,7 +211,7 @@ public class MemoryGUI implements ActionListener{
 	        			
 	        		}
 	        }else{
-	        	
+	        	//resets turn when it gets to end of player list.
 	        	if(++turn>playercounter+1){
         			turn = 1;
         			
@@ -218,7 +222,7 @@ public class MemoryGUI implements ActionListener{
 	        	matches = String.valueOf(players.get(turn-1).getMatches());
 	        	lblStats.setText(matches);
 	        	
-	        	
+	        	//clears buttons. 
 	        	for (int c = 0; c < 3; c++)
 	    	    {
 	    	        for (int r = 0; r < 6; r++)
@@ -235,6 +239,7 @@ public class MemoryGUI implements ActionListener{
 	        	cardsflipped = 0;
 	        	for(int i = 0; i<=playercounter; i++){
 		        	
+	        	//ends game when match limit is reached.
 		        if(players.get(i).getMatches() == matchlimiter+1){
 		        	GameOver frame = new GameOver();
 		        	frame.ender(players.get(i));
@@ -262,6 +267,7 @@ public class MemoryGUI implements ActionListener{
 	 * Launch the application.
 	 */
 	
+//launches the game, passes in parameters recieved from GameProperties.	
 public void Start(int playercount, int matchlimit){
 		
 		playercounter = playercount;
@@ -272,7 +278,7 @@ public void Start(int playercount, int matchlimit){
 		MemoryGUI window = new MemoryGUI();	
 		window.frmWelcomeToMemory.setVisible(true);
 			
-		
+		//gets player count.
 		for(int i = 0; i <= playercounter;i++){
 
 			String hh = "Player " + Integer.toString(i);

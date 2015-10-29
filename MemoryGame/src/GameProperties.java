@@ -87,7 +87,7 @@ public class GameProperties extends JFrame {
 		}
 
 		
-		
+		//executes the game board when clicked.
 		JButton btnNewButton = new JButton("PLAY!");
 		btnNewButton.addActionListener(new ActionListener() {
 			

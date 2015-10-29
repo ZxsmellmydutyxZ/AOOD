@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class GameOver extends JFrame {
 
@@ -47,13 +49,15 @@ public class GameOver extends JFrame {
 		panel.setLayout(null);
 
 		lblNewLabel = new JLabel();
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Vineta BT", Font.ITALIC, 25));
 
 		lblNewLabel.setBounds(31, 31, 358, 55);
 		panel.add(lblNewLabel);
 		
 		
 	}
-	
+	//displays the winner of the game.
 	public void ender(Player p){
 		this.setVisible(true);
 		lblNewLabel.setText(p.getName() + " wins!");

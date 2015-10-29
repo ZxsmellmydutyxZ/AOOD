@@ -15,6 +15,7 @@ public class Card implements ActionListener{
 		type = t;
 	}
 	
+	//gives card a button.
 	public void setButton(JButton boot){
 		butt = boot;
 		
@@ -32,6 +33,7 @@ public class Card implements ActionListener{
 		
 			
 	}
+	
 	public boolean check(Card card) {	//checks to see if the cards match
 		System.out.println(card.getType() + type);
 		if(type.equals(card.getType()) && card!=this){
@@ -52,11 +54,13 @@ public class Card implements ActionListener{
 	public void flip(){
 		
 	}
+	//actionlistener for card.
 	public void actionPerformed(ActionEvent arg0) {
 		butt.setText(this.getType());
-		System.out.println(this.getType());
+		
 		
 	}
+	//clear all buttons.
 	public void clearButtons(){
 		
 		if(this.found){
@@ -67,6 +71,7 @@ public class Card implements ActionListener{
 			
 		
 	}
+	
 	public JButton getButton(){
 		
 		return butt;
