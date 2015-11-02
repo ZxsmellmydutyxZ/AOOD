@@ -183,24 +183,24 @@ public class MemoryGUI implements ActionListener{
 	        		//bb.setText(aas);
 	        		
 	        		cardsflipped++;
-	        		System.out.println(bb.location());
+	        		//System.out.println(bb.location());
 	        		pickedcards.add(card);
 	        		
 	        		pick++;
-	        		System.out.println(pickedcards.size());
+	        		//System.out.println(pickedcards.size());
 	        		
 	        		if(pickedcards.size()>1){
 	        			
 	        			//checks to see if the cards selected match
 	        			if(pickedcards.get(0).check(pickedcards.get(1))){
-	        				System.out.println("wow");
+	        				//System.out.println("wow");
 
 		        				players.get(turn-1).addMatch();
 		        				matches = String.valueOf(players.get(turn-1).getMatches());
 		        				
 		        				lblStats.setText(matches);
 	        				
-		        				System.out.println(players.get(turn-1).getName() + matches);
+		        				//System.out.println(players.get(turn-1).getName() + matches);
 		        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
 	        			}
 	        			
@@ -235,7 +235,7 @@ public class MemoryGUI implements ActionListener{
 	    	        }
 	      	        	
 	        	pickedcards.clear();
-	        	System.out.println(pickedcards);
+	        	//System.out.println(pickedcards);
 	        	cardsflipped = 0;
 	        	for(int i = 0; i<=playercounter; i++){
 		        	

@@ -1,15 +1,18 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class GameOver extends JFrame {
 
@@ -17,6 +20,8 @@ public class GameOver extends JFrame {
 	ArrayList<Player> people = new ArrayList<Player>();
 	static JLabel lblNewLabel;
 	int size = people.size();
+	private JLabel lblNewLabel_1;
+	JLabel picLabel;
 	/**
 	 * Launch the application.
 	 */
@@ -56,10 +61,13 @@ public class GameOver extends JFrame {
 		panel.add(lblNewLabel);
 		
 		
+		
+		
 	}
 	//displays the winner of the game.
 	public void ender(Player p){
 		this.setVisible(true);
 		lblNewLabel.setText(p.getName() + " wins!");
+		
 	}
 }

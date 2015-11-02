@@ -35,7 +35,7 @@ public class Card implements ActionListener{
 	}
 	
 	public boolean check(Card card) {	//checks to see if the cards match
-		System.out.println(card.getType() + type);
+		//System.out.println(card.getType() + type);
 		if(type.equals(card.getType()) && card!=this){
 			this.found = true;
 			card.found = true;
