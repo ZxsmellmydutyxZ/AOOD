@@ -1,18 +1,16 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.awt.Image;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class GameOver extends JFrame {
 
@@ -20,7 +18,7 @@ public class GameOver extends JFrame {
 	ArrayList<Player> people = new ArrayList<Player>();
 	static JLabel lblNewLabel;
 	int size = people.size();
-	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel1;
 	JLabel picLabel;
 	/**
 	 * Launch the application.
@@ -45,20 +43,32 @@ public class GameOver extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 
 		lblNewLabel = new JLabel();
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Vineta BT", Font.ITALIC, 25));
+		lblNewLabel.setFont(new Font("Txt_IV50", Font.ITALIC, 22));
 
-		lblNewLabel.setBounds(31, 31, 358, 55);
+		lblNewLabel.setBounds(10, 11, 358, 55);
 		panel.add(lblNewLabel);
+		
+		lblNewLabel1 = new JLabel();
+		lblNewLabel1.setBackground(Color.WHITE);
+		lblNewLabel1.setIcon(new ImageIcon("\\\\ahhmdf1svde004.inst.hcpss.org\\homedir$\\Class16\\ebarne0781\\My Documents\\My Pictures\\greatjob_large.jpg"));
+		
+		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
+		
+
+		lblNewLabel1.setBounds(0, 52, 424, 200);
+		panel.add(lblNewLabel1);
 		
 		
 		
@@ -68,6 +78,7 @@ public class GameOver extends JFrame {
 	public void ender(Player p){
 		this.setVisible(true);
 		lblNewLabel.setText(p.getName() + " wins!");
-		
+		ImageIcon icon = new ImageIcon("/MemoryGame/prize.jpg");
+		//lblNewLabel1.setIcon(icon);
 	}
 }
