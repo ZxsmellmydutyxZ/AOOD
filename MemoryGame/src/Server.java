@@ -58,5 +58,21 @@ private void listen( int port ) throws IOException {
 	
 	
 }
+
+
+
+
+public void sendToAll(String message) {
+	// TODO Auto-generated method stub
 	
+}
+
+
+
+
+public void removeConnection(Socket socket){
+	// TODO Auto-generated method stub
+	             
+}
+
 }
