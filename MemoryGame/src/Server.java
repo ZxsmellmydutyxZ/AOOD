@@ -1,14 +1,12 @@
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.HashMap;
-
+import java.io.*;
+import java.net.*;
+import java.util.*;
 
 public class Server {
 	
 	ServerSocket ss;
-	HashMap outputStreams = new HashMap();
+	private Hashtable outputStreams = new Hashtable();
+
 	
 	public Server(int port) throws IOException{
 		listen(port);
@@ -26,7 +24,7 @@ public class Server {
 	
 	
 	
-public static void main(String args[]) throws Exception{
+static public void main(String args[]) throws Exception{
 	
 	int port = Integer.parseInt(args[0]);
 	
@@ -60,19 +58,46 @@ private void listen( int port ) throws IOException {
 }
 
 
+Enumeration getOutputStreams() {
+return (outputStreams).elements();
+}
 
+// Send a message to all clients (utility routine)
 
 public void sendToAll(String message) {
 	// TODO Auto-generated method stub
-	
+	synchronized( outputStreams ) {
+		// For each client ...
+		for (Enumeration e = getOutputStreams(); e.hasMoreElements(); ) {
+		
+		// ... get the output stream ...
+		DataOutputStream dout = (DataOutputStream)e.nextElement();
+		// ... and send the message
+		try {
+		dout.writeUTF( message );
+		} catch( IOException ie ) { System.out.println( ie ); }
+		}
+	}
 }
 
 
 
-
-public void removeConnection(Socket socket){
+public void removeConnection(Socket s){
 	// TODO Auto-generated method stub
-	             
+	synchronized( outputStreams ) {
+		// Tell the world
+		System.out.println( "Removing connection to "+s );
+		// Remove it from our hashtable/list
+		outputStreams.remove( s );
+		// Make sure it's closed
+		try {
+		s.close();
+		} catch( IOException ie ) {
+		System.out.println( "Error closing "+s );
+		ie.printStackTrace();
+		}
+		}
+             
 }
 
 }
