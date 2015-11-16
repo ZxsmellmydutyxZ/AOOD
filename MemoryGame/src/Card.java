@@ -60,6 +60,11 @@ public class Card implements ActionListener{
 		
 		
 	}
+	public void touch() {
+		butt.setText(this.getType());
+		
+		
+	}
 	//clear all buttons.
 	public void clearButtons(){
 		

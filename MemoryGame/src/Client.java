@@ -19,8 +19,10 @@ public class Client extends Panel implements Runnable{
 	// from the socket
 	private DataOutputStream dout;
 	private DataInputStream din;
-
-	public Client( String host, int port ) {
+	MemoryGUI gui;
+	
+	public Client( String host, int port, MemoryGUI gui) {
+		this.gui = gui;
 		// Set up the screen
 		setLayout( new BorderLayout() );
 		add( "North", tf );
@@ -61,12 +63,29 @@ public class Client extends Panel implements Runnable{
 		// Get the next message
 		String message = din.readUTF();
 		// Print it to our text window
+		System.out.println(message);
+		if(message.startsWith("TURN")){
+			
+			String[] params = message.substring(4).replace("\n", "").split(",");
+			
+			System.out.println(params[0]);
+			System.out.println("ok");
+			int x = Integer.parseInt(params[1]);
+			int y =  Integer.parseInt(params[2]);
+			System.out.println(x +" "+ y);
+			//gui.action(x,y,false);
+		}
 		ta.append( message+"\n" );
 		}
 		} catch( IOException ie ) { System.out.println( ie ); }
 		}
-	public void turn(int turn){
-		ta.append( Integer.toString(turn)+"\n" );
+	public void turn(int p, int x, int y){
+		try {
+			dout.writeUTF( "TURN"+p+","+x+","+y+"\n" );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public static void main(String args[]){
 		

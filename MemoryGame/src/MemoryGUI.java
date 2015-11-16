@@ -101,7 +101,7 @@ public class MemoryGUI implements ActionListener{
 		//String host = "localhost"; //getParameter( "host" );
 				int port = 5000; //Integer.parseInt( getParameter( "port" ) );
 				
-		Client clienter = new Client(adrs,port);
+		clienter = new Client(adrs,port,this);
 		frmWelcomeToMemory.getContentPane().add(clienter);
 		clienter.setBounds(650, 44, 200, 500);
 		
@@ -118,8 +118,8 @@ public class MemoryGUI implements ActionListener{
 	        {
 	        	
 	        
-	        final Card cardcard = board.getCard(r,c);
-	        String cardName = cardcard.getType();
+	       final Card cardcard = board.getCard(r,c);
+	       String cardName = cardcard.getType();
 	       
 	        
 	        final String aas = cardName;
@@ -149,35 +149,17 @@ public class MemoryGUI implements ActionListener{
 	    }
 	    
 }
-	public void action(int x, int y, Card cardcard, ActionEvent evt){
-		
+	public void action(int x, int y, boolean report){
+		Card cardcard = board.getCard(y,x);
 	    //limits the selected card limit to 2 cards.	
 	    if(cardsflipped<2){
-		   switch (x){
-		   case 0: x = 0;
-		   break;
-		   case 106: x = 1;
-		   break;
-		   case 212: x = 2;
-		   break;
-		   case 318: x = 3;
-		   break;
-		   case 424: x = 4;
-		   break;
-		   case 530: x = 5;
-		   }
-		   switch (y){
-		   case 0: y = 0;
-		   break;
-		   case 104: y = 1;
-		   break;
-		   case 208: y = 2;
-		   break;
-		   }
-		   		
+	    	
+		   	if(report){	
+	    	clienter.turn(turn-1, x, y);
+		   	}
 	    		Card card = cardcard;
 	    		
-	    		card.actionPerformed(evt);;
+	    		card.touch();
 	    		
 	    		//bb.setText(aas);
 	    		
@@ -198,7 +180,7 @@ public class MemoryGUI implements ActionListener{
 	        				matches = String.valueOf(players.get(turn-1).getMatches());
 	        				
 	        				lblStats.setText(matches);
-	    				
+	        				
 	        				//System.out.println(players.get(turn-1).getName() + matches);
 	        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
 	        				
