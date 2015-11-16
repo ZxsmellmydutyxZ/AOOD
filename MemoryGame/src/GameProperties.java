@@ -96,8 +96,8 @@ public class GameProperties extends JFrame {
 				
 				players = cb1.getSelectedIndex();
 				matchlimit = cb2.getSelectedIndex();
-				MemoryGUI window = new MemoryGUI();
-				window.Start(players,matchlimit,textField.getText());
+				MemoryGUI window = new MemoryGUI(textField.getText());
+				window.Start(players,matchlimit);
 
 			}
 		});

@@ -40,7 +40,7 @@ public class MemoryGUI implements ActionListener{
 	public int r = 3;
 	public int c = 6;
 	private JLabel lblScore;
-	String adrs;
+	
 
 	
 	
@@ -50,18 +50,7 @@ public class MemoryGUI implements ActionListener{
 	 * Create the application.
 	 */
 
-	public MemoryGUI() {
-		initialize();
-		
-		
-		
-	}
-	
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	public void initialize() {
+	public MemoryGUI(String adrs) {
 		
 		
 		
@@ -109,13 +98,10 @@ public class MemoryGUI implements ActionListener{
 		lblMemory.setBounds(256, 11, 135, 26);
 		frmWelcomeToMemory.getContentPane().add(lblMemory);
 		
-
 		//String host = "localhost"; //getParameter( "host" );
-		int port = 5000; //Integer.parseInt( getParameter( "port" ) );
-		
+				int port = 5000; //Integer.parseInt( getParameter( "port" ) );
+				
 		Client clienter = new Client(adrs,port);
-		
-		//frmWelcomeToMemory.add( "Bottom", new Client( host, port ) );
 		frmWelcomeToMemory.getContentPane().add(clienter);
 		clienter.setBounds(650, 44, 200, 500);
 		
@@ -276,15 +262,20 @@ public class MemoryGUI implements ActionListener{
 	 */
 	
 //launches the game, passes in parameters recieved from GameProperties.	
-public void Start(int playercount, int matchlimit, String ip){
+public void Start(int playercount, int matchlimit){
 		
 		playercounter = playercount;
 		matchlimiter = matchlimit;
-		ip = adrs;
 		
 		
-		MemoryGUI window = new MemoryGUI();	
-		window.frmWelcomeToMemory.setVisible(true);
+
+		
+		
+		//frmWelcomeToMemory.add( "Bottom", new Client( host, port ) );
+		
+		
+		//MemoryGUI window = new MemoryGUI();	
+		this.frmWelcomeToMemory.setVisible(true);
 			
 		//gets player count.
 		for(int i = 0; i <= playercounter;i++){
