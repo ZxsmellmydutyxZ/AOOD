@@ -109,17 +109,12 @@ public class MemoryGUI implements ActionListener{
 		lblMemory.setBounds(256, 11, 135, 26);
 		frmWelcomeToMemory.getContentPane().add(lblMemory);
 		
-<<<<<<< HEAD
+
 		//String host = "localhost"; //getParameter( "host" );
 		int port = 5000; //Integer.parseInt( getParameter( "port" ) );
 		
 		Client clienter = new Client(adrs,port);
-=======
-		String host = "localhost"; //getParameter( "host" );
-		int port = 5000; //Integer.parseInt( getParameter( "port" ) );
-		
-		Client clienter = new Client(host,port);
->>>>>>> 623d998f0ee2bcba89b88fd466ddd0d8e944a18a
+
 		//frmWelcomeToMemory.add( "Bottom", new Client( host, port ) );
 		frmWelcomeToMemory.getContentPane().add(clienter);
 		clienter.setBounds(650, 44, 200, 500);
