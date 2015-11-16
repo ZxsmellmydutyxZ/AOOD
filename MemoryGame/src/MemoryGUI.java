@@ -137,7 +137,7 @@ public class MemoryGUI implements ActionListener{
 	        
 	        
 	        //adds listener to the cards.
-	        cardcard.getButton().addActionListener(new MemoryListener(this, bb, cardcard));
+	        cardcard.getButton().addActionListener(new MemoryListener(this, r, c));
 	        
 	        panel.add(bb);
 	        
@@ -150,7 +150,7 @@ public class MemoryGUI implements ActionListener{
 	    
 }
 	public void action(int x, int y, boolean report){
-		Card cardcard = board.getCard(y,x);
+		Card cardcard = board.getCard(x,y);
 	    //limits the selected card limit to 2 cards.	
 	    if(cardsflipped<2){
 	    	
