@@ -26,7 +26,7 @@ public class Server {
 	
 static public void main(String args[]) throws Exception{
 	
-	int port = Integer.parseInt(args[0]);
+	int port = 5000;//Integer.parseInt(args[0]);
 	
 	new Server(port);
 	

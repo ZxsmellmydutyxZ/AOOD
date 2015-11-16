@@ -65,5 +65,8 @@ public class Client extends Panel implements Runnable{
 		}
 		} catch( IOException ie ) { System.out.println( ie ); }
 		}
-
+	
+	public static void main(String args[]){
+		
+	}
 }
