@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 
@@ -68,7 +69,7 @@ public class MemoryGUI implements ActionListener{
 		frmWelcomeToMemory = new JFrame();
 		frmWelcomeToMemory.setTitle("Welcome to Memory");
 		frmWelcomeToMemory.getContentPane().setBackground(Color.CYAN);
-		frmWelcomeToMemory.setBounds(100, 100, 650, 420);
+		frmWelcomeToMemory.setBounds(100, 100, 894, 420);
 		frmWelcomeToMemory.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmWelcomeToMemory.getContentPane().setLayout(null);
 		
@@ -107,9 +108,13 @@ public class MemoryGUI implements ActionListener{
 		lblMemory.setBounds(256, 11, 135, 26);
 		frmWelcomeToMemory.getContentPane().add(lblMemory);
 		
+		String host = "localhost"; //getParameter( "host" );
+		int port = 5000; //Integer.parseInt( getParameter( "port" ) );
 		
-		
-		
+		Client clienter = new Client(host,port);
+		//frmWelcomeToMemory.add( "Bottom", new Client( host, port ) );
+		frmWelcomeToMemory.getContentPane().add(clienter);
+		clienter.setBounds(650, 44, 200, 500);
 		
 		//creates a grid of buttons/cards.
 	}
