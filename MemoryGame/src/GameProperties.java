@@ -27,6 +27,7 @@ public class GameProperties extends JFrame {
 	private JPanel contentPane;
 	private int players;
 	private int matchlimit;
+	private JTextField textField;
 	
 	/**
 	 * Launch the application.
@@ -96,7 +97,7 @@ public class GameProperties extends JFrame {
 				players = cb1.getSelectedIndex();
 				matchlimit = cb2.getSelectedIndex();
 				MemoryGUI window = new MemoryGUI();
-				window.Start(players,matchlimit);
+				window.Start(players,matchlimit,textField.getText());
 
 			}
 		});
@@ -112,5 +113,14 @@ public class GameProperties extends JFrame {
 		JLabel lblMatches = new JLabel("Matches");
 		lblMatches.setBounds(233, 18, 62, 14);
 		panel.add(lblMatches);
+		
+		textField = new JTextField();
+		textField.setBounds(123, 43, 86, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblIp = new JLabel("IP");
+		lblIp.setBounds(127, 21, 57, 14);
+		panel.add(lblIp);
 	}
 }
