@@ -40,7 +40,7 @@ public class MemoryGUI implements ActionListener{
 	public int r = 3;
 	public int c = 6;
 	private JLabel lblScore;
-	private String adrs;
+	String adrs;
 
 	
 	
@@ -114,7 +114,7 @@ public class MemoryGUI implements ActionListener{
 		int port = 5000; //Integer.parseInt( getParameter( "port" ) );
 		
 		Client clienter = new Client(adrs,port);
-
+		
 		//frmWelcomeToMemory.add( "Bottom", new Client( host, port ) );
 		frmWelcomeToMemory.getContentPane().add(clienter);
 		clienter.setBounds(650, 44, 200, 500);

@@ -62,7 +62,7 @@ public class GameOver extends JFrame {
 		
 		lblNewLabel1 = new JLabel();
 		lblNewLabel1.setBackground(Color.WHITE);
-		lblNewLabel1.setIcon(new ImageIcon("\\\\ahhmdf1svde004.inst.hcpss.org\\homedir$\\Class16\\ebarne0781\\My Documents\\My Pictures\\greatjob_large.jpg"));
+		lblNewLabel1.setIcon(new ImageIcon("/MemoryGame/prize.jpg"));
 		
 		lblNewLabel1.setHorizontalAlignment(SwingConstants.CENTER);
 		
@@ -78,7 +78,7 @@ public class GameOver extends JFrame {
 	public void ender(Player p){
 		this.setVisible(true);
 		lblNewLabel.setText(p.getName() + " wins!");
-		ImageIcon icon = new ImageIcon("/MemoryGame/prize.jpg");
+		
 		//lblNewLabel1.setIcon(icon);
 	}
 }
