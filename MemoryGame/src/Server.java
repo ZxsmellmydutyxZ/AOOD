@@ -50,6 +50,9 @@ private void listen( int port ) throws IOException {
 	outputStreams.put( s, dout );
 	// Create a new thread for this connection, and then forget
 	// about it
+	try {
+		dout.writeUTF("Welcome");
+		} catch( IOException ie ) { System.out.println( ie ); }
 	new ServerThread( this, s );
 	}
 

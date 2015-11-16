@@ -65,7 +65,9 @@ public class Client extends Panel implements Runnable{
 		}
 		} catch( IOException ie ) { System.out.println( ie ); }
 		}
-	
+	public void turn(int turn){
+		ta.append( Integer.toString(turn)+"\n" );
+	}
 	public static void main(String args[]){
 		
 	}

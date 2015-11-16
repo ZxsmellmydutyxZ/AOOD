@@ -40,7 +40,7 @@ public class MemoryGUI implements ActionListener{
 	public int r = 3;
 	public int c = 6;
 	private JLabel lblScore;
-	
+	Client clienter;
 
 	
 	
@@ -127,7 +127,7 @@ public class MemoryGUI implements ActionListener{
 	        JButton button = new JButton();
 	        JButton button1 = new JButton();
 	        
-	        
+
 	        button.setSize(50, 180);
 	        button.setBackground(Color.LIGHT_GRAY);
 	        cardcard.setButton(button);
@@ -138,14 +138,14 @@ public class MemoryGUI implements ActionListener{
 	        
 	        //adds listener to the cards.
 	        cardcard.getButton().addActionListener(new ActionListener(){
-
+	        
 	      
 	        
 	       public void actionPerformed(ActionEvent evt) {
 	        	
 	    	   int x = 0;
 	        	int y = 0;
-	        
+	        	
 	        //limits the selected card limit to 2 cards.	
 	        if(cardsflipped<2){
 	    	   switch (bb.getX()){
@@ -196,6 +196,7 @@ public class MemoryGUI implements ActionListener{
 	        				
 		        				//System.out.println(players.get(turn-1).getName() + matches);
 		        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
+		        				
 	        			}
 	        			
 	        	        
