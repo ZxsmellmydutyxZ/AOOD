@@ -107,7 +107,7 @@ public class MemoryGUI implements ActionListener{
 		
 		//creates a grid of buttons/cards.
 	}
-	public static void createGrid(JPanel panel, int numRows, int numCol) 
+	public void createGrid(JPanel panel, int numRows, int numCol) 
 	
 	{
 		
@@ -132,120 +132,12 @@ public class MemoryGUI implements ActionListener{
 	        button.setBackground(Color.LIGHT_GRAY);
 	        cardcard.setButton(button);
 	        
-	        final JButton bb = cardcard.getButton();
+	        JButton bb = cardcard.getButton();
 	        
 	        
 	        
 	        //adds listener to the cards.
-	        cardcard.getButton().addActionListener(new ActionListener(){
-	        
-	      
-	        
-	       public void actionPerformed(ActionEvent evt) {
-	        	
-	    	   int x = 0;
-	        	int y = 0;
-	        	
-	        //limits the selected card limit to 2 cards.	
-	        if(cardsflipped<2){
-	    	   switch (bb.getX()){
-	    	   case 0: x = 0;
-	    	   break;
-	    	   case 106: x = 1;
-	    	   break;
-	    	   case 212: x = 2;
-	    	   break;
-	    	   case 318: x = 3;
-	    	   break;
-	    	   case 424: x = 4;
-	    	   break;
-	    	   case 530: x = 5;
-	    	   }
-	    	   switch (bb.getY()){
-	    	   case 0: y = 0;
-	    	   break;
-	    	   case 104: y = 1;
-	    	   break;
-	    	   case 208: y = 2;
-	    	   break;
-	    	   }
-	    	   		
-	        		Card card = cardcard;
-	        		
-	        		card.actionPerformed(evt);;
-	        		
-	        		//bb.setText(aas);
-	        		
-	        		cardsflipped++;
-	        		//System.out.println(bb.location());
-	        		pickedcards.add(card);
-	        		
-	        		pick++;
-	        		//System.out.println(pickedcards.size());
-	        		
-	        		if(pickedcards.size()>1){
-	        			
-	        			//checks to see if the cards selected match
-	        			if(pickedcards.get(0).check(pickedcards.get(1))){
-	        				//System.out.println("wow");
-
-		        				players.get(turn-1).addMatch();
-		        				matches = String.valueOf(players.get(turn-1).getMatches());
-		        				
-		        				lblStats.setText(matches);
-	        				
-		        				//System.out.println(players.get(turn-1).getName() + matches);
-		        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
-		        				
-	        			}
-	        			
-	        	        
-	        			
-	        			
-	        			
-	        			
-	        		}
-	        }else{
-	        	//resets turn when it gets to end of player list.
-	        	if(++turn>playercounter+1){
-        			turn = 1;
-        			
-        			}
-	        	
-	        	lblNewLabel.setText(players.get(turn-1).getName() + "'s");
-	        	lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
-	        	matches = String.valueOf(players.get(turn-1).getMatches());
-	        	lblStats.setText(matches);
-	        	
-	        	//clears buttons. 
-	        	for (int c = 0; c < 3; c++)
-	    	    {
-	    	        for (int r = 0; r < 6; r++)
-	    	        {
-	    	        	
-	    	        	board.getCard(c,r).clearButtons();
-	    	        	
-	    	        	
-	    	        	}
-	    	        }
-	      	        	
-	        	pickedcards.clear();
-	        	//System.out.println(pickedcards);
-	        	cardsflipped = 0;
-	        	for(int i = 0; i<=playercounter; i++){
-		        	
-	        	//ends game when match limit is reached.
-		        if(players.get(i).getMatches() == matchlimiter+1){
-		        	GameOver frame = new GameOver();
-		        	frame.ender(players.get(i));
-		       
-		        	
-		        	}
-		        }
-	        	
-	        }
-	       }
-	        });
+	        cardcard.getButton().addActionListener(new MemoryListener(this, bb, cardcard));
 	        
 	        panel.add(bb);
 	        
@@ -257,6 +149,107 @@ public class MemoryGUI implements ActionListener{
 	    }
 	    
 }
+	public void action(int x, int y, Card cardcard, ActionEvent evt){
+		
+	    //limits the selected card limit to 2 cards.	
+	    if(cardsflipped<2){
+		   switch (x){
+		   case 0: x = 0;
+		   break;
+		   case 106: x = 1;
+		   break;
+		   case 212: x = 2;
+		   break;
+		   case 318: x = 3;
+		   break;
+		   case 424: x = 4;
+		   break;
+		   case 530: x = 5;
+		   }
+		   switch (y){
+		   case 0: y = 0;
+		   break;
+		   case 104: y = 1;
+		   break;
+		   case 208: y = 2;
+		   break;
+		   }
+		   		
+	    		Card card = cardcard;
+	    		
+	    		card.actionPerformed(evt);;
+	    		
+	    		//bb.setText(aas);
+	    		
+	    		cardsflipped++;
+	    		//System.out.println(bb.location());
+	    		pickedcards.add(card);
+	    		
+	    		pick++;
+	    		//System.out.println(pickedcards.size());
+	    		
+	    		if(pickedcards.size()>1){
+	    			
+	    			//checks to see if the cards selected match
+	    			if(pickedcards.get(0).check(pickedcards.get(1))){
+	    				//System.out.println("wow");
+
+	        				players.get(turn-1).addMatch();
+	        				matches = String.valueOf(players.get(turn-1).getMatches());
+	        				
+	        				lblStats.setText(matches);
+	    				
+	        				//System.out.println(players.get(turn-1).getName() + matches);
+	        				lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
+	        				
+	    			}
+	    			
+	    	        
+	    			
+	    			
+	    			
+	    			
+	    		}
+	    }else{
+	    	//resets turn when it gets to end of player list.
+	    	if(++turn>playercounter+1){
+				turn = 1;
+				
+				}
+	    	
+	    	lblNewLabel.setText(players.get(turn-1).getName() + "'s");
+	    	lblNewLabel_1.setText(players.get(turn-1).getName() + "'s");
+	    	matches = String.valueOf(players.get(turn-1).getMatches());
+	    	lblStats.setText(matches);
+	    	
+	    	//clears buttons. 
+	    	for (int c = 0; c < 3; c++)
+		    {
+		        for (int r = 0; r < 6; r++)
+		        {
+		        	
+		        	board.getCard(c,r).clearButtons();
+		        	
+		        	
+		        	}
+		        }
+	  	        	
+	    	pickedcards.clear();
+	    	//System.out.println(pickedcards);
+	    	cardsflipped = 0;
+	    	for(int i = 0; i<=playercounter; i++){
+	        	
+	    	//ends game when match limit is reached.
+	        if(players.get(i).getMatches() == matchlimiter+1){
+	        	GameOver frame = new GameOver();
+	        	frame.ender(players.get(i));
+	       
+	        	
+	        	}
+	        }
+	    	
+	    }
+	   }
 	
 	/**
 	 * Launch the application.
